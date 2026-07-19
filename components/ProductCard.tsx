@@ -1,12 +1,16 @@
 "use client";
+
 import Link from "next/link";
 import { useContext } from "react";
 import CartContext from "@/components/context/CartContext";
+
+import GlassCard from "./cards/GlassCard";
 
 import Image from "next/image";
 import { Heart } from "lucide-react";
 
 type ProductCardProps = {
+  id: string;
   image: string;
   name: string;
   price: string;
@@ -16,6 +20,7 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({
+  id,
   image,
   name,
   price,
@@ -28,32 +33,81 @@ export default function ProductCard({
   console.log("Rendering:", name);
 
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(59,130,246,0.25)]">
-      <button className="absolute right-4 top-4 rounded-full bg-white p-2 shadow-md transition hover:scale-110 hover:text-red-500">
+    <div>
+      <button className="absolute right-4 top-4 rounded-full bg-white p-2 transition hover:scale-110 hover:text-red-500">
         <Heart size={18} />
       </button>
        
-      <Link href={`/product/$name.toLowerCase().replace(/\s/+g, "-")}`}> 
-        <Image
-          src={image}
-          alt={name}
-          width={180}
-          height={180}
-          className="cursor-pointer transition-transform duration-300 hover:scale-105"
-        />
-      </Link>  
-      <div className="mb-4 inline-block rounded-full bg-red-500 px-3 py-1 text-sm font-semibold text-white">
-        {discount}
+      <div className="
+            group
+            relative
+            overflow-hidden
+            rounded-xl
+            border
+            border-neutral-200
+            bg-white
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:border-yellow-400
+          ">
+
+        <Link href={`/product/${id}`}>
+            <div className="relative flex h-80 items-center justify-center overflow-hidden bg-gradient-to-b from-white to-neutral-100">
+
+                <Image
+                  src={image}
+                  alt={name}
+                  fill
+                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-110"
+               />
+
+            </div>
+        </Link>
+
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100">
+
+          <Link href={`/product/${id}`}>
+            <button className="rounded-full bg-white px-6 py-3 font-semibold text-gray-900 shadow-xl transition hover:scale-110">
+              Quick View
+            </button>
+          </Link>
+
+        </div>
+
       </div>
 
-      <Link href={`/product/${name.toLowerCase().replace(/\s+/g, "-")}`}>
-        <h3 className="cursor-pointer text-lg font-semibold hover:text-blue-600 transition-colors">
+      <div className="mb-4 flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-green-500"></span>
+        <span className="text-sm font-medium text-green-600">
+          In Stock
+        </span>
+      </div>
+
+      <Link href={`/product/${id}`}>
+        <h3
+         className="
+         text-xl
+         font-semibold
+         tracking-tight
+         transition-colors
+         hover:text-yellow-500
+         "
+        >
          {name}
         </h3>
       </Link>
-        <p className="mt-2 text-yellow-500">
-         ⭐ {rating}
-        </p>
+        <div className="mt-3 flex items-center gap-2">
+          <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+
+          <span className="text-sm font-semibold text-gray-700">
+           {rating}
+          </span>
+
+          <span className="text-xs text-gray-400">
+           (245 Reviews)
+          </span>
+        </div>
 
         <div className="mt-3">
           <p className="text-2xl font-bold text-blue-600">
@@ -85,6 +139,7 @@ export default function ProductCard({
               return [
                 ...prev,
                 {
+                 id,
                  image,
                  name,
                  price,
@@ -96,7 +151,21 @@ export default function ProductCard({
               ];
             });
           }}
-          className="mt-6 w-full rounded-xl bg-blue-600 py-3 font-semibold text-white"
+          className="
+           mt-6
+           w-full
+           rounded-lg
+           bg-black
+           py-3
+           font-semibold
+           text-white
+           transition-all
+           duration-300
+           hover:scale-105
+           hover:bg-yellow-400
+           hover:text-black
+           active:scale-95
+          "
         >
          🛒 Add to Cart
         </button>

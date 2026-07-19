@@ -17,62 +17,56 @@ export default function Navbar() {
   );
   
   return (
-    <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-700">
-          ShopSphere
+    <header className="fixed left-1/2 top-4 z-50 w-[96%] max-w-7xl -translate-x-1/2 rounded-2xl border border-white/10 bg-black/30 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+      <div className="mx-auto flex h-20 max-w-7xl items-center gap-6 px-8">
+        <Link href="/" className="flex-shrink-0">
+          <h1 className="text-3xl font-black tracking-tight text-white">
+            ORACCA
+          </h1>
         </Link>
-
-        {/* Search Bar */}
-        <div className="hidden md:flex flex-1 mx-8">
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search for products..."
-              value = {search}
-              onChange = {(e)=>setSearch(e.target.value) }
-              className="w-full rounded-full border border-gray-300 py-2 pl-4 pr-12 outline-none focus:border-blue-600"
-            />
-            <Search
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-              size={20}
-            />
-          </div>
+        <div className="relative flex-1">
+          <input
+            type="text"
+            placeholder="Search for products..."
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+            className="w-full rounded-full border border-white/10 bg-white/10 py-3 pl-6 pr-12 text-white placeholder:text-slate-400 backdrop-blur-xl outline-none transition focus:border-blue-500"
+          /> 
+          <Search 
+           className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400"
+            size={20}
+          />
         </div>
+        <div className="flex items-center gap-8">
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
           <Link
-            href="/categories"
-            className="hover:text-blue-700 transition"
+           href="/categories"
+           className="text-slate-300 transition-all duration-300 hover:text-white"
           >
             Categories
           </Link>
 
           <Link
-            href="/account"
-            className="hover:text-blue-700"
+           href="/account"
+           className="text-slate-300 transition-all duration-300 hover:text-white"
           >
-            <User />
+            <User size={22} />
           </Link>
 
           <Link
-            href="/cart"
-            className="relative hover:text-blue-700"
+           href="/cart"
+           className="relative text-slate-300 transition-all duration-300 hover:text-white"
           >
-            <ShoppingCart />
-            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-xs text-white">
-              {totalItem}
-            </span>
-          </Link>
-        </nav>
+            <ShoppingCart size={24} />
 
-        {/* Mobile Menu */}
-        <button className="md:hidden">
-          <Menu />
-        </button>
-      </div>
+            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+             {totalItem}
+            </span>
+
+          </Link>
+
+        </div>
+      </div>                                                                                                            
     </header>
   );
 }

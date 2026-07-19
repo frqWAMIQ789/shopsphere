@@ -1,7 +1,7 @@
 export const products = [
   {
     id: "gaming-laptop",
-    image: "/products/laptop.png",
+    image: "/products/laptop.jpg",
     name: "Gaming Laptop",
     price: "₹79,999",
     oldPrice: "₹89,999",
@@ -14,7 +14,7 @@ export const products = [
   },
   {
     id: "wireless-headphones",
-    image: "/products/headphones.png",
+    image: "/products/headphones.jpg",
     name: "Wireless Headphones",
     price: "₹4,999",
     oldPrice: "₹6,499",
@@ -27,7 +27,7 @@ export const products = [
   },
   {
     id: "smart-watch",
-    image: "/products/smartwatch.png",
+    image: "/products/smartwatch.jpg",
     name: "Smart Watch",
     price: "₹7,499",
     oldPrice: "₹9,999",
@@ -40,7 +40,7 @@ export const products = [
   },
   {
     id: "smartphone",
-    image: "/products/phone.png",
+    image: "/products/phone.jpg",
     name: "Smartphone",
     price: "₹39,999",
     oldPrice: "₹44,999",

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function FlashSale() {
  const flashSaleProducts = [
     {
-     image: "/products/laptop.png",
+     image: "/products/laptopjpg",
      name: "Gaming Laptop",
      price: "₹79,999",
      discount: "11% OFF",
@@ -13,7 +13,7 @@ export default function FlashSale() {
      total: 100,
     },
     {
-     image: "/products/headphones.png",
+     image: "/products/headphones.jpg",
      name: "Wireless Headphones",
      price: "₹4,999",
      discount: "23% OFF",
@@ -21,7 +21,7 @@ export default function FlashSale() {
      total: 100,
     },
     {
-     image: "/products/smartwatch.png",
+     image: "/products/smartwatch.jpg",
      name: "Smart Watch",
      price: "₹7,499",
      discount: "25% OFF",
